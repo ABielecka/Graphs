@@ -8,7 +8,7 @@
 
 using namespace std;
 
-//Do pomiaru czasu to od kolegi
+//Do pomiaru czasu 
 LARGE_INTEGER getTimer()
 {
 	LARGE_INTEGER time;
@@ -60,7 +60,7 @@ void PrzygotujDane(Naglowek* naglowek, Krawedzie* tableEdge, float gestosc)
 			tableEdge[i].koncowyWierzcholek = temp[index].koncowyWierzcholek;
 			tableEdge[i].waga = temp[index].waga;
 
-			//Zamieniam wybrany element z elementem na koñcu tabeli
+			//Zamieniam wybrany element z elementem na koÃ±cu tabeli
 			std::swap(temp[index], temp[(naglowek->liczbaKrawedzi-1)-i]);
 		}
 		delete[] temp;
@@ -108,16 +108,16 @@ void saveToFile(int* dist, int n, int* parent, int start)
 //template<typename T>
 //void DijkstraDistances(T* G, int start, bool printToFile = false)
 //{
-//	int* dist;                              //tablica dystansów do wierzcho³ka
-//	int* parent;                            //tablica poprzedników
-//	Queue* prQueue;                         //WskaŸnik do kolejki prioryterowej
+//	int* dist;                              //tablica dystansÃ³w do wierzchoÂ³ka
+//	int* parent;                            //tablica poprzednikÃ³w
+//	Queue* prQueue;                         //WskaÅ¸nik do kolejki prioryterowej
 //
 //	prQueue = new Queue(G->NumberOfVertices());
 //
 //	dist = new int[G->NumberOfVertices()];
 //	parent = new int[G->NumberOfVertices()];
 //
-//	//Ustalam dystanse na INT_MAX (symulacja nieskoñczonoœci) i dodajê do kolejki
+//	//Ustalam dystanse na INT_MAX (symulacja nieskoÃ±czonoÅ“ci) i dodajÃª do kolejki
 //	for (int v = 0; v < G->NumberOfVertices(); v++)
 //	{
 //		dist[v] = INT_MAX;
@@ -125,7 +125,7 @@ void saveToFile(int* dist, int n, int* parent, int start)
 //		parent[v] = -1;
 //	}
 //
-//	//Dla wierzcho³ka startowego
+//	//Dla wierzchoÂ³ka startowego
 //	dist[start] = 0;
 //	prQueue->DecreaseKey(dist[start], start);
 //
@@ -133,7 +133,7 @@ void saveToFile(int* dist, int n, int* parent, int start)
 //	{
 //		int u = prQueue->Extract()->vertex;
 //	
-//		EdgeList* pEdgie = G->IncydentEdgies(u);                //lista krawêdzi incydentnych dla u
+//		EdgeList* pEdgie = G->IncydentEdgies(u);                //lista krawÃªdzi incydentnych dla u
 //
 //		for (EdgeNode* node = pEdgie->head; node != 0; node = node->next)
 //		{
@@ -158,17 +158,17 @@ void saveToFile(int* dist, int n, int* parent, int start)
 template<typename T>
 void DijkstraDistances(T* G, int start, bool printToFile = false)
 {
-	int* dist;                              //tablica dystansów do wierzcho³ka
-	int* parent;                            //tablica poprzedników
-	Queue* prQueue;                         //WskaŸnik do kolejki prioryterowej
-	EdgeNode* incydentEdgie;                //krawêdŸ incydentna
+	int* dist;                              //tablica dystansÃ³w do wierzchoÂ³ka
+	int* parent;                            //tablica poprzednikÃ³w
+	Queue* prQueue;                         //WskaÅ¸nik do kolejki prioryterowej
+	EdgeNode* incydentEdgie;                //krawÃªdÅ¸ incydentna
 
 	prQueue = new Queue(G->NumberOfVertices());
 
 	dist = new int[G->NumberOfVertices()];
 	parent = new int[G->NumberOfVertices()];
 
-	//Ustalam dystanse na INT_MAX (symulacja nieskoñczonoœci) i dodajê do kolejki
+	//Ustalam dystanse na INT_MAX (symulacja nieskoÃ±czonoÅ“ci) i dodajÃª do kolejki
 	for (int v = 0; v < G->NumberOfVertices(); v++)
 	{
 		dist[v] = INT_MAX;
@@ -176,7 +176,7 @@ void DijkstraDistances(T* G, int start, bool printToFile = false)
 		parent[v] = -1;
 	}
 
-	//Dla wierzcho³ka startowego
+	//Dla wierzchoÂ³ka startowego
 	dist[start] = 0;
 	prQueue->DecreaseKey(dist[start], start);
 
@@ -213,7 +213,7 @@ int main()
 	int a;                                              //sposob reprezentacji(Lista, Macierz)
 	int d;                                              //sposob przygotowania danych (z pliku, generowanie) 
 	std::string nazeaPliku;                             //nazwa pliku z danymi
-	float dens[4] = { 0.25, 0.5, 0.75, 1 };             //gêstoœæ grafu
+	float dens[4] = { 0.25, 0.5, 0.75, 1 };             //gÃªstoÅ“Ã¦ grafu
 	int liczebnosc;                                     //liczba wierzcholkow
 
 	//Graf
@@ -229,9 +229,9 @@ int main()
 	float sredniCzas;
 	std::ofstream plik;
 
-	srand(time(NULL));   //Funkcja ustawia punkt startowy, który jest stosowany do generowania serii pseudo losowych liczb calkowitych.
+	srand(time(NULL));   //Funkcja ustawia punkt startowy, ktÃ³ry jest stosowany do generowania serii pseudo losowych liczb calkowitych.
 						 //Funkcja rand bedzie generowala zawsze ta sama sekwencje liczb, jezeli nie zostanie wywolana wczesniej funkcja srand, 
-						 //lub funkcja srand zostanie wywolana z argumentem równym 	
+						 //lub funkcja srand zostanie wywolana z argumentem rÃ³wnym 	
 		
 	do
 	{
@@ -281,14 +281,14 @@ int main()
 				}
 				Plik.close();
 
-				//Tworzê listê wierzcholkow
+				//TworzÃª listÃª wierzcholkow
 				listaWierzcholkow = new VertexList();
 				for (int i = 0; i < naglowek->liczbaWierzcholkow; i++)
 				{
 					listaWierzcholkow->AddToHead(i);
 				}
 
-				//Tworzê listê krawedzi
+				//TworzÃª listÃª krawedzi
 				listaKrawedzi = new EdgeList();
 				for (int i = 0; i < naglowek->liczbaKrawedzi; i++)
 				{
@@ -296,7 +296,7 @@ int main()
 				}
 
 				//Budowa grafu
-				if (a == 1)				//Lista s¹siedztwa
+				if (a == 1)				//Lista sÂ¹siedztwa
 				{
 					graphAdjList = new GraphAdjList(naglowek->liczbaWierzcholkow);
 					graphAdjList->GraphFill(listaKrawedzi);
@@ -304,7 +304,7 @@ int main()
 					//graphAdjList->printAll();
 					delete graphAdjList;
 				}
-				if (a == 2)             //Macierz s¹siedztwa
+				if (a == 2)             //Macierz sÂ¹siedztwa
 				{
 					graphAdjMatrix = new GraphAdjMatrix(naglowek->liczbaWierzcholkow);
 
@@ -342,14 +342,14 @@ int main()
 						//Przygotowanie danych	
 						PrzygotujDane(naglowek, tableKrawedzie, gestosc);
 
-						//Tworzê listê wierzcholkow
+						//TworzÃª listÃª wierzcholkow
 						listaWierzcholkow = new VertexList();
 						for (int i = 0; i < naglowek->liczbaWierzcholkow; i++)
 						{
 							listaWierzcholkow->AddToHead(i);
 						}
 
-						//Tworzê listê krawedzi
+						//TworzÃª listÃª krawedzi
 						listaKrawedzi = new EdgeList();
 						for (int i = 0; i < naglowek->liczbaKrawedzi; i++)
 						{
